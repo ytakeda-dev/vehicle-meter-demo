@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:vehicle_meter_demo/domain/engine_input.dart';
 import 'package:vehicle_meter_demo/domain/engine_state.dart';
@@ -212,5 +213,15 @@ class DashboardNotifier extends Notifier<DashboardState> {
 
   void _applySoundAsset(Brand brand) {
     // Future use: Call sound asset manager or else.
+  }
+
+  /// For testing purpose.
+  @visibleForTesting
+  void debugTick(double dtSeconds) => _tick(dtSeconds);
+
+  /// For testing purpose.
+  void debugStopEngineLoop() {
+    _engineLoop?.cancel();
+    _engineLoop = null;
   }
 }

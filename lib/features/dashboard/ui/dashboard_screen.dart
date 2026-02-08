@@ -15,6 +15,8 @@ import 'package:vehicle_meter_demo/features/dashboard/ui/analog_rpm_meter.dart';
 import 'package:vehicle_meter_demo/features/dashboard/ui/bar_rpm_meter.dart';
 import 'package:vehicle_meter_demo/features/dashboard/ui/constants.dart';
 
+import '../test_keys/dashboard_keys.dart';
+
 /// Main dashboard screen.
 /// This screen observes DashboardState and renders UI accordingly.
 /// All business logic and timing are handled by DashboardNotifier.
@@ -49,6 +51,7 @@ class DashboardScreen extends ConsumerWidget {
                   children: [
                     // --- Meter mode toggle ---
                     FlutterToggleTab(
+                      key: DashboardKeys.meterModeToggle,
                       width: 60,
                       borderRadius: 18,
                       selectedTextStyle: const TextStyle(
@@ -80,7 +83,7 @@ class DashboardScreen extends ConsumerWidget {
                         switchOutCurve: Curves.easeIn,
                         child: state.meterMode == MeterMode.analog
                             ? AnalogRpmMeter(
-                                key: const ValueKey('analog'),
+                                key: DashboardKeys.analogMeter,
                                 rpm: state.displayRpm,
                                 maxRpm: kMaxRpm,
                                 redlineRpm: kRedlineStartRpm,
@@ -88,7 +91,7 @@ class DashboardScreen extends ConsumerWidget {
                                     .toUpperCase(),
                               )
                             : BarRpmMeter(
-                                key: const ValueKey('bar'),
+                                key: DashboardKeys.barMeter,
                                 rpm: state.displayRpm,
                                 maxRpm: kMaxRpm,
                                 redlineRpm: kRedlineStartRpm,
@@ -103,6 +106,7 @@ class DashboardScreen extends ConsumerWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
+                          key: DashboardKeys.rpmValue,
                           state.displayRpm.toStringAsFixed(0),
                           style: const TextStyle(
                             color: Colors.white,
@@ -167,6 +171,7 @@ class DashboardScreen extends ConsumerWidget {
                         children: [
                           Expanded(
                             child: ElevatedButton(
+                              key: DashboardKeys.ignitionButton,
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: _ignitionColor(engineState),
                                 foregroundColor: Colors.white,
@@ -194,6 +199,7 @@ class DashboardScreen extends ConsumerWidget {
                               onTapCancel: () =>
                                   bus.emit(KeyboardThrottleReleased()),
                               child: ElevatedButton(
+                                key: DashboardKeys.throttleButton,
                                 onPressed:
                                     () {}, // GestureDetector does everything.
                                 child: const Padding(
