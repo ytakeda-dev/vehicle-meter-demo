@@ -1,0 +1,39 @@
+stateDiagram-v2
+    direction LR
+
+    [*] --> Off
+
+    Off --> Starting: Ignition requested
+    Starting --> Running: Warm-up reaches kWarmUpRpm
+    Starting --> Off: Ignition requested (toggle off)
+    Running --> Off: Ignition requested (toggle off)
+
+    note right of Off
+      Engine is off.
+      A cooling loop decreases RPM to 0.
+    end note
+
+    state Off {
+        [*] --> Cooling
+        Cooling: displayRpm -> 0\n(updateCooling)
+    }
+
+    state Starting {
+        [*] --> WarmUp
+        WarmUp: displayRpm increases\nuntil kWarmUpRpm\n(updateWarmUp)
+    }
+
+    state Running {
+        [*] --> Idle
+        Idle: target = kIdleRpm\n(updateRunning)
+
+        Idle --> ThrottleOn: Throttle pressed
+        ThrottleOn --> Idle: Throttle released
+
+        ThrottleOn: target = kRevLimitRpm\n(updateRunning)
+    }
+
+    note bottom of Running
+      The engine loop ticks periodically (~60fps).
+      dt is computed in seconds and drives smooth transitions.
+    end note
