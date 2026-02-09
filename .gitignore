@@ -331,3 +331,6 @@ fabric.properties
 
 # FVM Version Cache
 .fvm/
+
+# Archives
+*.zip
