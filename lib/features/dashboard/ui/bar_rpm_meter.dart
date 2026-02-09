@@ -75,8 +75,8 @@ class BarRpmMeter extends StatelessWidget {
                             begin: Alignment.bottomCenter,
                             end: Alignment.topCenter,
                             colors: [
-                              Colors.cyanAccent.withOpacity(0.85),
-                              Colors.cyanAccent.withOpacity(0.25),
+                              Colors.cyanAccent.withValues(alpha: 0.85),
+                              Colors.cyanAccent.withValues(alpha: 0.25),
                             ],
                           ),
                         ),
@@ -91,7 +91,7 @@ class BarRpmMeter extends StatelessWidget {
                           child: DecoratedBox(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(14),
-                              color: Colors.redAccent.withOpacity(0.10),
+                              color: Colors.redAccent.withValues(alpha: 0.10),
                             ),
                           ),
                         ),

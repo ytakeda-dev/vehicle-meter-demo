@@ -154,7 +154,7 @@ class _AnalogDialPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 14
       ..strokeCap = StrokeCap.round
-      ..color = Colors.redAccent.withOpacity(0.9);
+      ..color = Colors.redAccent.withValues(alpha: 0.9);
     canvas.drawArc(
       rect,
       start + sweep * redStartT,
