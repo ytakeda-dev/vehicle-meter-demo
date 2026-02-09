@@ -1,4 +1,4 @@
-# Flutter Embedded Dashboard Demo
+# Vehicle Meter – Flutter Embedded Dashboard Demo
 
 Flutter で **車載 Linux（Flutter embedded）向け UI** を想定した、1画面完結のダッシュボード・デモアプリです。  
 最終的なターゲットは **Linux + Wayland**（専用ハードウェア）ですが、日々の開発・デモ・ライブコーディングは **macOS / Linux Desktop** 上で行える構成にしています。
@@ -128,4 +128,8 @@ flutter run -d linux
 ---
 
 ## Diagrams
-- Engine state flow: `EngineStateFlow.mmd`
+- Engine state flow: `EngineStateFlow.mmd
+
+## License
+This project is licensed under the MIT License.`
+
