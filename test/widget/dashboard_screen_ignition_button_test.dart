@@ -10,6 +10,7 @@ import 'package:vehicle_meter_demo/features/dashboard/state/brand.dart';
 import 'package:vehicle_meter_demo/features/dashboard/state/dashboard_state.dart';
 import 'package:vehicle_meter_demo/features/dashboard/state/meter_mode.dart';
 import 'package:vehicle_meter_demo/features/dashboard/test_keys/dashboard_keys.dart';
+import 'package:vehicle_meter_demo/features/dashboard/ui/constants.dart';
 import 'package:vehicle_meter_demo/features/dashboard/ui/dashboard_screen.dart';
 
 class FakeDashboardNotifier extends DashboardNotifier {
@@ -81,7 +82,7 @@ void main() {
     // Widget tests run with a default test surface (often 800x600),
     // which may cause layout overflows for UIs designed for larger screens.
     // Set an explicit surface size so the test environment matches the intended layout.
-    await tester.binding.setSurfaceSize(const Size(1280, 720));
+    await tester.binding.setSurfaceSize(const Size(kScreenWidth, kScreenHeight));
     addTearDown(() async => tester.binding.setSurfaceSize(null));
 
     // Off
