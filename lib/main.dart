@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:vehicle_meter_demo/features/dashboard/ui/constants.dart';
 import 'package:window_manager/window_manager.dart';
 
 import 'features/dashboard/ui/dashboard_screen.dart';
@@ -9,9 +10,9 @@ Future<void> main() async {
   await windowManager.ensureInitialized();
 
   const windowOptions = WindowOptions(
-    size: Size(1280, 720),
-    minimumSize: Size(1280, 720),
-    maximumSize: Size(1280, 720),
+    size: Size(kScreenWidth, kScreenHeight),
+    minimumSize: Size(kScreenWidth, kScreenHeight),
+    maximumSize: Size(kScreenWidth, kScreenHeight),
     center: true,
     backgroundColor: Colors.transparent,
     titleBarStyle: TitleBarStyle.normal,
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         return MediaQuery(
           data: MediaQuery.of(
             context,
-          ).copyWith(size: const Size(1280, 720), devicePixelRatio: 1.0),
+          ).copyWith(size: const Size(kScreenWidth, kScreenHeight), devicePixelRatio: 1.0),
           child: child!,
         );
       },

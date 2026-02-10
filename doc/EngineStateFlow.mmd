@@ -15,25 +15,25 @@ stateDiagram-v2
 
     state Off {
         [*] --> Cooling
-        Cooling: displayRpm -> 0\n(updateCooling)
+        Cooling: displayRpm -> 0<br>(updateCooling)
     }
 
     state Starting {
         [*] --> WarmUp
-        WarmUp: displayRpm increases\nuntil kWarmUpRpm\n(updateWarmUp)
+        WarmUp: displayRpm increases<br>until kWarmUpRpm<br>(updateWarmUp)
     }
 
     state Running {
         [*] --> Idle
-        Idle: target = kIdleRpm\n(updateRunning)
+        Idle: target = kIdleRpm<br>(updateRunning)
 
         Idle --> ThrottleOn: Throttle pressed
         ThrottleOn --> Idle: Throttle released
 
-        ThrottleOn: target = kRevLimitRpm\n(updateRunning)
+        ThrottleOn: target = kRevLimitRpm<br>(updateRunning)
     }
-
-    note bottom of Running
+    
+    note right of Running
       The engine loop ticks periodically (~60fps).
       dt is computed in seconds and drives smooth transitions.
     end note

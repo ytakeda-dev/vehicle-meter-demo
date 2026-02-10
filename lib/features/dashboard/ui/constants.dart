@@ -1,3 +1,9 @@
+/// Screen width.
+const double kScreenWidth = 1280.0;
+
+/// Screen height.
+const double kScreenHeight = 720.0;
+
 /// Maximum RPM value for the meter scale.
 const double kMaxRpm = 10000.0;
 
